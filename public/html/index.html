@@ -1,0 +1,24 @@
+<html>
+  <header>
+    <title>NZXT Starfield Web Integration</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </header>
+  <body>
+    <svg id="svg" viewBox="0 0 100 100" width="640" height="640">
+      <clipPath id="clip">
+        <path id="clip_path"></path>
+      </clipPath>
+      
+      <line id="ray_1"></line>
+      <line id="ray_2"></line>
+      <line id="ray_3"></line>
+      <line id="ray_4"></line>
+
+      <use clip-path="url(#clip)" href="#ray_1" stroke="#304B7A" />
+      <use clip-path="url(#clip)" href="#ray_2" stroke="#D9A64A" />
+      <use clip-path="url(#clip)" href="#ray_3" stroke="#DD6434" />
+      <use clip-path="url(#clip)" href="#ray_4" stroke="#C82238" />
+    </svg>
+  </body>
+  <script type="module" src="/js/main.js"></script>
+</html>
