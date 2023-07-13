@@ -5,6 +5,7 @@
   </header>
   <body>
     <svg id="svg" viewBox="0 0 100 100" width="640" height="640">
+      <!-- Rainbow -->
       <clipPath id="clip">
         <path id="clip_path"></path>
       </clipPath>
@@ -18,6 +19,26 @@
       <use clip-path="url(#clip)" href="#ray_2" stroke="#D9A64A" />
       <use clip-path="url(#clip)" href="#ray_3" stroke="#DD6434" />
       <use clip-path="url(#clip)" href="#ray_4" stroke="#C82238" />
+
+      <!-- Date -->
+      <path id="date_path"></path>
+      <text>
+        <textPath id="date" href="#date_path" startOffset="5">Thursday 13 July 2323 CE</textPath>
+      </text>
+
+      <!-- CPU temp -->
+      <g transform="translate(31, 23)">
+        <text id="cpu_temp" class="temp" x="0" y="0">35°C</text>
+        <path class="temp_outline" stroke-width="1.5px" d="M -15 2 L -15 5 L 15 5 L 15 2"></path>
+        <text class="temp_label" x="0" y="10">CPU TEMP</text>
+      </g>
+
+      <!-- GPU temp -->
+      <g transform="translate(44, 80)">
+        <text id="gpu_temp" class="temp" dominant-baseline="central" x="0" y="0">42°C</text>
+        <polygon class="temp_outline" stroke-width="1px" style="stroke: #C82238" points="-2.165,0 2.165,-2.5 2.165,2.5" transform="translate(19, 0)"></polygon>
+        <text class="temp_label" dominant-baseline="central" style="text-anchor: start;" x="23" y="-0.2">GPU TEMP</text>
+      </g>
     </svg>
   </body>
   <script type="module" src="/js/main.js"></script>
