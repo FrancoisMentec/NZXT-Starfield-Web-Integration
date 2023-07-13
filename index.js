@@ -3,10 +3,10 @@ import express from 'express'
 const app = express()
 const port = 2553
 
-app.use(express.static('public'))
+app.use('/public', express.static('public'))
 
 app.get('/', (req, res) => {
-    res.sendFile('public/html/index.html', { root: '.' })
+    res.sendFile('index.html', { root: '.' })
 })
 
 app.listen(port, () => {
