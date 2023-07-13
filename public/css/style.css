@@ -3,43 +3,8 @@
 }
 
 @font-face {
-    font-family: 'roboto';
-    src: url('/fonts/roboto/Roboto-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'roboto_thin';
-    src: url('/fonts/roboto/Roboto-Thin.ttf');
-}
-
-@font-face {
-    font-family: 'roboto_bold';
-    src: url('/fonts/roboto/Roboto-Bold.ttf');
-}
-
-@font-face {
-    font-family: 'roboto_black';
-    src: url('/fonts/roboto/Roboto-Black.ttf');
-}
-
-@font-face {
-    font-family: 'roboto_light';
-    src: url('/fonts/roboto/Roboto-Light.ttf');
-}
-
-@font-face {
-    font-family: 'futura_extra_bold';
-    src: url('/fonts/Futura Extra Bold.otf');
-}
-
-@font-face {
-    font-family: 'futura_heavy';
-    src: url('/fonts/Futura Heavy.otf');
-}
-
-@font-face {
     font-family: 'futura_bk_bold';
-    src: url('/fonts/Futura Bk Bold.ttf');
+    src: url('../fonts/Futura Bk Bold.ttf');
 }
 
 html, body {
