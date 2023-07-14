@@ -24,17 +24,15 @@ window.nzxt = {
 }
 
 const cpu_temp = document.getElementById('cpu_temp')
-
 function update_cpu (temp) {
-    cpu_temp.innerText = `${Math.round(temp)}°C`
-
+    cpu_temp.innerHTML = `${Math.round(temp)}°C`
 }
 
 const gpu_temp = document.getElementById('gpu_temp')
-
 function update_gpu (temp) {
-    gpu_temp.innerText = `${Math.round(temp)}°C`
+    gpu_temp.innerHTML = `${Math.round(temp)}°C`
 }
+
 
 // Rainbow
 function draw_rainbow (width, start_x, start_y, end_x, end_y) {
@@ -66,7 +64,7 @@ function draw_rainbow (width, start_x, start_y, end_x, end_y) {
     }
 
     // Date (follow the rainbow)
-    const dist = hw + 2 // We add the distance to the rainbow bottom to the rainbow half width
+    const dist = hw + 3 // We add the distance to the rainbow bottom to the rainbow half width
     document.getElementById('date_path').setAttribute('d', `
     M ${end_x + dist * Math.cos(angle_2)}, ${end_y - dist * Math.sin(angle_2)}
     L ${start_x + dist * Math.cos(angle_2)}, ${start_y - dist * Math.sin(angle_2)}`)
@@ -96,3 +94,45 @@ function update_date () {
 }
 
 update_date()
+
+
+// Lines
+const CORNER_RADIUS = 4
+
+function draw_line (name, ...points) {
+    let x1 = points[0][0]
+    let y1 = points[0][1]
+    let d = `M ${x1} ${y1}`
+    for (let i = 1; i < points.length; i++) {
+        const x2 = points[i][0]
+        const y2 = points[i][1]
+        if (i < points.length - 1) {
+            let o = x2 - x1
+            let a = y2 - y1
+            let h = Math.sqrt(o ** 2 + a ** 2)
+            let x = x1 + (h - CORNER_RADIUS) * o / h
+            let y = y1 + (h - CORNER_RADIUS) * a / h
+            d += ` L ${x} ${y}`
+            
+
+            const x3 = points[i + 1][0]
+            const y3 = points[i + 1][1]
+            o = x3 - x2
+            a = y3 - y2
+            h = Math.sqrt(o ** 2 + a ** 2)
+            x = x2 + CORNER_RADIUS * o / h
+            y = y2 + CORNER_RADIUS * a / h
+            //d += ` A ${CORNER_RADIUS}, ${CORNER_RADIUS} 0, 0, 0 ${x}, ${y}`
+            d += ` C ${x2} ${y2} ${x2} ${y2} ${x} ${y}`
+        } else {
+            d += ` L ${x2} ${y2}`
+        }
+        x1 = x2
+        y1 = y2
+    }
+    document.getElementById(name).setAttribute('d', d)
+}
+
+//draw_line('line_1', [31, 34], [18, 84], [50, 95], [70, 90], [72, 83])
+draw_line('line_1', [17, 32], [6, 32], [14, 81], [21, 81])
+//draw_line('line_2', [81, 77], [90, 68], [90, 55], [81, 46])

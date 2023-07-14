@@ -59,10 +59,16 @@ text {
 }
 
 .temp_label {
-    font-size: 3.5px;
+    font-size: 5px;
 }
 
 #date {
-    font-size: 2px;
+    font-size: 3.40px;
     text-anchor: start;
+}
+
+.line {
+    stroke: var(--text_color);
+    fill: transparent;
+    stroke-width: 0.5;
 }
